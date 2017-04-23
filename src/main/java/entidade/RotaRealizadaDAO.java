@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package entidade;
+ 
 
 import java.util.List;
 import org.hibernate.Criteria;

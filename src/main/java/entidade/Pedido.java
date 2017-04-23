@@ -4,7 +4,8 @@
  * and open the template in the editor.
  */
 package Entidade;
- 
+    
+import entidade.RotaRealizada;
 import java.sql.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

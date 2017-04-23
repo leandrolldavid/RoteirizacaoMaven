@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package Entidade;
-  
+    
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,8 +18,8 @@ import javax.persistence.Id;
 //@Entity (name = "tbCargo")
 public class Cargo {
     
-   // @Id
- //   @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int IdCargo;
     
     private String perfil;

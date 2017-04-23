@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package Entidade;
-
+ 
 import java.sql.Time;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

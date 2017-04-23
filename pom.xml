@@ -32,6 +32,14 @@
             <version>5.3.4.Final</version>
             <type>jar</type>
         </dependency>
+        <!--
+        <dependency>
+            <groupId>org.apache.geronimo.plugins</groupId>
+            <artifactId>server-repo</artifactId>
+            <version>1.0</version>
+            <type>car</type>
+        </dependency>
+        -->
         <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-web-api</artifactId>
@@ -142,6 +150,7 @@
             
         </plugins>
     </build>
+   
     <repositories>
         <repository>
             <id>spring-releases</id>
