@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package Entidade;
-
+ 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;

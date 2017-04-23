@@ -1,20 +1,16 @@
+
 package controle;
 /**
  *
  * @author leandroDavid
  */
- 
-    /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */ 
-
 
 import Entidade.Cargo;
+import entidade.CargoDAO;
 import java.util.ArrayList;
 import java.util.List;
 import javax.websocket.server.PathParam;
+import static org.springframework.http.RequestEntity.method;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -40,8 +36,13 @@ public class ControleCargo {
     public Cargo criarCargo(@RequestBody Cargo p){
         //jogar p no BD e receher do BD o id
         //preencher o id de p
-         p.setPerfil("Gerente");
-         return p;
+        
+       CargoDAO dao = new CargoDAO();
+       
+     // Cargo cargoSalva = dao.salvar(p);
+     //return cargoSalva;
+               
+        return p;
     }
     
      @CrossOrigin(origins = "http://editor.swagger.io")
@@ -51,7 +52,13 @@ public class ControleCargo {
          Cargo p = new Cargo();
          p.setPerfil("Gerente");
          p.setIdCargo(id);
+         
+         CargoDAO dao = new CargoDAO();
+        
+        //Cargo p = dao.buscar(id);
          return p;
+         
+         
      }
     
     //GET cargo
@@ -66,6 +73,9 @@ public class ControleCargo {
         
          resultado.add(p1);
         
+         // CargoDAO dao = new CargoDAO();
+ //         resultado.add(dao.consultar("", true)) ;
+  
         
          return resultado;
                 

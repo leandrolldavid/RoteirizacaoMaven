@@ -6,7 +6,7 @@
 package Entidade;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-/**
+/** 
  *
  * @author Leandro David
  * @author Thayllan Siqueira
