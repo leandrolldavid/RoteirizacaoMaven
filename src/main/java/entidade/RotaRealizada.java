@@ -7,6 +7,8 @@ package Entidade;
 
 import java.sql.Time;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 /**
  *
@@ -16,7 +18,9 @@ import javax.persistence.Id;
 @Entity (name = "tbRotaRealizada")
 public class RotaRealizada {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int IdRotaReal;
+    
     private String EnderecoEntrega;
     private String LocalizacaoEntregador;
     private Time tempo;     //<<<<<<< classifiquei como time? verificar!!!

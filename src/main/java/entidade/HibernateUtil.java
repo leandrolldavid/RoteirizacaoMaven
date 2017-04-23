@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package Entidade;
- 
+  
 import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.SessionFactory;
 

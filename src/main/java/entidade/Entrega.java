@@ -5,6 +5,8 @@
  */
 package Entidade;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 /** 
  *
@@ -13,8 +15,9 @@ import javax.persistence.Id;
  */
 @Entity (name = "tbEntrega")
 public class Entrega {
-    
+     
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int IdEntrega;
     private int NumMax;
     private Funcionario Funcionario;

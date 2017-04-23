@@ -7,6 +7,8 @@ package Entidade;
 
 import java.sql.Time;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 
@@ -18,7 +20,9 @@ import javax.persistence.Id;
 @Entity (name = "tbRota")
  class Rota {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int IdRota;
+    
     private String EnderecoEntrega;
     private String LocalizacaoEntregador;
     private Time tempo;
