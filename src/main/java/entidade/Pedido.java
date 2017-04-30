@@ -1,23 +1,19 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package Entidade;
+package entidade;
     
-import entidade.RotaRealizada;
 import java.sql.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  *
  * @author Leandro David
- * @author Thayllan Siqueira
+ * @author Thayllan Siqueira 
  */
-@Entity (name = "tbPedido")
+@Entity 
+@Table(name = "tbPedido")
 public class Pedido {
     @Id
      @GeneratedValue(strategy = GenerationType.AUTO)
@@ -30,9 +26,13 @@ public class Pedido {
     private String TelefoneCliente;
     private String Status;
     private Date DataHora;
+    
     private Entrega entrega;
+    
     private RotaRealizada RotaReal;
+    
     private Rota Rota;
+    
     private Funcionario Funcionairo;
 
     public int getIdPedido() {

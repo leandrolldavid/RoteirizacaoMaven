@@ -1,10 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package entidade;
+package persistencia;
 
+import entidade.Rota;
 import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
@@ -13,17 +9,18 @@ import org.hibernate.criterion.Restrictions;
 
 /**
  *
- * @author RA21551055
+ * @author leandroDavid
  */
-public class EntregaDAO {
-     public Entrega salvar(Entrega c){
+public class RotaDAO {
+  
+    public Rota salvar(Rota p){
         Transaction tx = null;
         try{
             Session sessao = HibernateUtil.getSessionFactory().openSession();
 
             tx = sessao.beginTransaction();
-
-            sessao.save(c);
+ 
+            sessao.save(p);
             sessao.flush();
             tx.commit();
 
@@ -35,18 +32,18 @@ public class EntregaDAO {
             }
         }
 
-        return c;
+        return p;
     }
 
-    public Entrega buscar(int id){
-        return (Entrega) HibernateUtil.getSessionFactory().openSession().get(Entrega.class, id);
+    public Rota buscar(int id){
+        return (Rota) HibernateUtil.getSessionFactory().openSession().get(Rota.class, id);
     }
 
-    public List<Entrega> consultar(String palavra){
+    public List<Rota> consultar(String palavra){
 
         Session sessao = HibernateUtil.getSessionFactory().openSession();
 
-        Criteria criteria = sessao.createCriteria(Entrega.class);
+        Criteria criteria = sessao.createCriteria(Rota.class);
         criteria.add(Restrictions.like("texto", "%" + palavra + "%"));
 
         return criteria.list();
@@ -55,19 +52,22 @@ public class EntregaDAO {
     public void deletar(int id){
         Session sessao = HibernateUtil.getSessionFactory().openSession();
         
-        sessao.delete(sessao.get(Entrega.class, id));
+        sessao.delete(sessao.get(Rota.class, id));
     }
     
-    public Entrega atualizar(int id, Entrega novo){
+    public Rota atualizar(int id, Rota novo){
         Session sessao = HibernateUtil.getSessionFactory().openSession();
-        Entrega antiga = (Entrega) sessao.get(Entrega.class, id);
+        Rota antiga = (Rota) sessao.get(Rota.class, id);
         
-        antiga.setFuncionario(novo.getFuncionario());
-        antiga.setNumMax(novo.getNumMax());
-        sessao.save(antiga);
+       antiga.setTempo(novo.getTempo());
+       antiga.setLocalizacaoEntregador(novo.getLocalizacaoEntregador());
+       antiga.setEnderecoEntrega(novo.getEnderecoEntrega());
+        
+        sessao.save(antiga); 
         sessao.flush();
         
         return antiga;
     }
-    
 }
+     
+ 

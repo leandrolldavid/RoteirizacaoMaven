@@ -1,5 +1,6 @@
-package entidade;
+package persistencia;
 
+import entidade.Cargo;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.Transaction;

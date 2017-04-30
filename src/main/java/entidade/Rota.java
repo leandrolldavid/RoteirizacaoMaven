@@ -1,24 +1,21 @@
- /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package Entidade;
- 
+package entidade;
+
 import java.sql.Time;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
+import javax.persistence.Table;
 
 /**
  *
- * @author Leandro David
- * @author Thayllan Siqueira
+ * @author leandroDavid
  */
-@Entity (name = "tbRota")
- class Rota {
+
+    @Entity
+    @Table(name = "tbRota")
+    public class Rota  {
+        
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int IdRota;
@@ -30,6 +27,7 @@ import javax.persistence.Id;
     public int getIdRota() {
         return IdRota;
     }
+
     public void setIdRota(int IdRota) {
         this.IdRota = IdRota;
     }
@@ -37,6 +35,7 @@ import javax.persistence.Id;
     public String getEnderecoEntrega() {
         return EnderecoEntrega;
     }
+
     public void setEnderecoEntrega(String EnderecoEntrega) {
         this.EnderecoEntrega = EnderecoEntrega;
     }
@@ -44,6 +43,7 @@ import javax.persistence.Id;
     public String getLocalizacaoEntregador() {
         return LocalizacaoEntregador;
     }
+
     public void setLocalizacaoEntregador(String LocalizacaoEntregador) {
         this.LocalizacaoEntregador = LocalizacaoEntregador;
     }
@@ -51,8 +51,10 @@ import javax.persistence.Id;
     public Time getTempo() {
         return tempo;
     }
+
     public void setTempo(Time tempo) {
         this.tempo = tempo;
     }
     
-}
+  }   
+

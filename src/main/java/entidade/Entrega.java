@@ -1,25 +1,27 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package Entidade;
+package entidade;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 /** 
  * 
  * @author Leandro David
  * @author Thayllan Siqueira
  */
-@Entity (name = "tbEntrega")
+@Entity 
+@Table(name = "tbEntrega")
 public class Entrega {
      
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int IdEntrega;
+    
     private int NumMax;
+    
+    //@OneToMany
     private Funcionario Funcionario;
 
     public int getIdEntrega() {

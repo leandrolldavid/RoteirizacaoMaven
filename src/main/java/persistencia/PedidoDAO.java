@@ -1,29 +1,30 @@
-package entidade;
+package persistencia;
 
-
+import entidade.Pedido;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
-
 import java.util.List;
 
 /**
  * Created by rafael on 06/04/17.
  */
-public class FuncionarioDAO {
+public class PedidoDAO {
+ 
 
-
-    public Funcionario salvar(Funcionario f){
+    public Pedido salvar(Pedido p){
         Transaction tx = null;
         try{
             Session sessao = HibernateUtil.getSessionFactory().openSession();
 
             tx = sessao.beginTransaction();
 
-            sessao.save(f);
+            sessao.save(p);
             sessao.flush();
             tx.commit();
+
+
 
             sessao.close();
         } catch (Exception e) {
@@ -33,50 +34,51 @@ public class FuncionarioDAO {
             }
         }
 
-        return f;
+        return p;
     }
 
-    public Funcionario buscar(int id){
-        return (Funcionario) HibernateUtil.getSessionFactory().openSession().get(Funcionario.class, id);
+    public Pedido buscar(int id){
+        return (Pedido) HibernateUtil.getSessionFactory().openSession().get(Pedido.class, id);
     }
 
-    public List<Funcionario> consultar(String palavra){
+    public List<Pedido> consultar(String palavra){
 
         Session sessao = HibernateUtil.getSessionFactory().openSession();
 
-        Criteria criteria = sessao.createCriteria(Funcionario.class);
+        Criteria criteria = sessao.createCriteria(Pedido.class);
         criteria.add(Restrictions.like("texto", "%" + palavra + "%"));
-        
 
         return criteria.list();
     }
     
+    
+    
     public void deletar(int id){
         Session sessao = HibernateUtil.getSessionFactory().openSession();
         
-        sessao.delete(sessao.get(Funcionario.class, id));
+        sessao.delete(sessao.get(Pedido.class, id));
     }
     
-    public Funcionario atualizar(int id, Funcionario novo){
+    public Pedido atualizar(int id, Pedido novo){
         Session sessao = HibernateUtil.getSessionFactory().openSession();
-        Funcionario antiga = (Funcionario) sessao.get(Funcionario.class, id);
+        Pedido antiga = (Pedido) sessao.get(Pedido.class, id);
         
-        antiga.setNome(novo.getNome());
-        antiga.setCPF(novo.getCPF());
-        antiga.setEndereco(novo.getEndereco());
-        antiga.setTelefone(novo.getTelefone());
+        antiga.setNumeroPedido(novo.getNumeroPedido());
+        antiga.setDescricao(novo.getDescricao());
+        antiga.setEnderecoCliente(novo.getEnderecoCliente());
+        antiga.setNomeCliente(novo.getNomeCliente());
+        antiga.setTelefoneCliente(novo.getTelefoneCliente());
+        antiga.setTelefoneCliente(novo.getTelefoneCliente());
         antiga.setStatus(novo.getStatus());
-        antiga.setLogin(novo.getLogin());
-        antiga.setSenha(novo.getSenha());
-        antiga.setSenha(novo.getSenha());
         
-        antiga.setCargo(novo.getCargo());
-        
+        antiga.setEntrega(novo.getEntrega());
+        antiga.setFuncionairo(novo.getFuncionairo());
+       // antiga.setRota(novo.getRota());
+        antiga.setRotaReal(novo.getRotaReal());
         
         sessao.save(antiga);
         sessao.flush();
         
         return antiga;
     }
-    
-}
+  }

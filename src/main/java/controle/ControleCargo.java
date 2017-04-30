@@ -5,8 +5,8 @@ package controle;
  * @author leandroDavid
  */
 
-import Entidade.Cargo;
-import entidade.CargoDAO;
+import entidade.Cargo;
+import persistencia.CargoDAO;
 import java.util.ArrayList;
 import java.util.List;
 import javax.websocket.server.PathParam;
