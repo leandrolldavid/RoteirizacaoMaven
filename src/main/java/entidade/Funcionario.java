@@ -18,7 +18,7 @@ public class Funcionario {
     
     @Id 
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int IdFuncionario;
+    private Integer IdFuncionario;
     
     private String Nome; 
     private String CPF;
@@ -31,11 +31,11 @@ public class Funcionario {
     @ManyToOne
     private Cargo cargo;
 
-    public int getIdFuncionario() {
+    public Integer getIdFuncionario() {
         return IdFuncionario;
     }
 
-    public void setIdFuncionario(int IdFuncionario) {
+    public void setIdFuncionario(Integer IdFuncionario) {
         this.IdFuncionario = IdFuncionario;
     }
 

@@ -17,9 +17,9 @@ import javax.persistence.Table;
 public class Pedido {
     @Id
      @GeneratedValue(strategy = GenerationType.AUTO)
-    private int IdPedido;
+    private Integer IdPedido;
     
-    private int NumeroPedido;
+    private Integer NumeroPedido;
     private String Descricao;
     private String EnderecoCliente;
     private String nomeCliente;
@@ -38,14 +38,14 @@ public class Pedido {
     public int getIdPedido() {
         return IdPedido;
     }
-    public void setIdPedido(int IdPedido) {
+    public void setIdPedido(Integer IdPedido) {
         this.IdPedido = IdPedido;
     }
 
-    public int getNumeroPedido() {
+    public Integer getNumeroPedido() {
         return NumeroPedido;
     }
-    public void setNumeroPedido(int NumeroPedido) {
+    public void setNumeroPedido(Integer NumeroPedido) {
         this.NumeroPedido = NumeroPedido;
     }
 

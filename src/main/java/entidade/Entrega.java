@@ -17,18 +17,18 @@ public class Entrega {
      
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int IdEntrega;
+    private Integer IdEntrega;
     
-    private int NumMax;
+    private Integer NumMax;
     
     //@OneToMany
     private Funcionario Funcionario;
 
-    public int getIdEntrega() {
+    public Integer getIdEntrega() {
         return IdEntrega;
     }
 
-    public void setIdEntrega(int IdEntrega) {
+    public void setIdEntrega(Integer IdEntrega) {
         this.IdEntrega = IdEntrega;
     }
 

@@ -1,5 +1,6 @@
 package entidade;
     
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,25 +18,24 @@ public class Cargo {
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int IdCargo;
+    private Integer IdCargo;
     
+    @Column
     private String perfil;
 
-    public int getIdCargo() {
-        return IdCargo;
-    }
-
-    public void setIdCargo(int IdCargo) {
-        this.IdCargo = IdCargo;
-    }
 
     public String getPerfil() {
         return perfil;
     }
-
     public void setPerfil(String perfil) {
         this.perfil = perfil;
     }
-    
-    
+
+    public Integer getIdCargo() {
+        return IdCargo;
+    }
+
+    public void setIdCargo(Integer IdCargo) {
+        this.IdCargo = IdCargo;
+    }
 }

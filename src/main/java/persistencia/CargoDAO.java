@@ -1,6 +1,7 @@
 package persistencia;
 
 import entidade.Cargo;
+import java.util.ArrayList;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -34,36 +35,55 @@ public class CargoDAO {
 
         return c;
     }
-
-    public Cargo buscar(int id){
-        return (Cargo) HibernateUtil.getSessionFactory().openSession().get(Cargo.class, id);
-    }
-
-    public List<Cargo> consultar(String palavra){
-
+     public List<Cargo> listCargo(){
+          List<Cargo> Cargo = new ArrayList<Cargo>();
+                                     
+          Session session = HibernateUtil.getSessionFactory().openSession();
+          try {
+              Cargo = session.createQuery("from Cargo").list();
+              
+          } catch (RuntimeException e) {
+              e.printStackTrace();
+          } finally {
+              session.flush();
+              session.close();
+          }
+          return Cargo;
+              }
+         public String atualizar(Cargo novo)throws Exception{
+        try{
         Session sessao = HibernateUtil.getSessionFactory().openSession();
-
-        Criteria criteria = sessao.createCriteria(Cargo.class);
-        criteria.add(Restrictions.like("texto", "%" + palavra + "%"));
-
-        return criteria.list();
-    }
-    
-    public void deletar(int id){
-        Session sessao = HibernateUtil.getSessionFactory().openSession();
-        
-        sessao.delete(sessao.get(Cargo.class, id));
-    }
-    
-    public Cargo atualizar(int id, Cargo novo){
-        Session sessao = HibernateUtil.getSessionFactory().openSession();
-        Cargo antiga = (Cargo) sessao.get(Cargo.class, id);
+        Cargo antiga = (Cargo) sessao.get(Cargo.class, novo.getIdCargo());
         
         antiga.setPerfil(novo.getPerfil());
         
         sessao.save(antiga);
         sessao.flush();
         
-        return antiga;
+        return "true";
+    } catch (Exception e) {
+            throw new Exception(e.getMessage());
+        }
+}
+     public List<Cargo> buscar(){
+
+        Session sessao = HibernateUtil.getSessionFactory().openSession();
+
+        Criteria criteria = sessao.createCriteria(Cargo.class);
+       // criteria.add(Restrictions.like("texto", "%" + palavra + "%"));
+
+        return criteria.list();
     }
+      
+
+    public Cargo consultar(Integer id){
+        return (Cargo) HibernateUtil.getSessionFactory().openSession().get(Cargo.class, id);
+    }
+    public void deletar(Integer id){
+        Session sessao = HibernateUtil.getSessionFactory().openSession();
+        
+        sessao.delete(sessao.get(Cargo.class, id));
+    }
+    
+
 }

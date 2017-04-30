@@ -16,16 +16,16 @@ import javax.persistence.Table;
 public class RotaRealizada {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int IdRotaReal;
+    private Integer IdRotaReal;
     
     private String EnderecoEntrega;
     private String LocalizacaoEntregador;
     private Time tempo;     //<<<<<<< classifiquei como time? verificar!!!
 
-    public int getIdRotaReal() {
+    public Integer getIdRotaReal() {
         return IdRotaReal;
     }
-    public void setIdRotaReal(int IdRotaReal) {
+    public void setIdRotaReal(Integer IdRotaReal) {
         this.IdRotaReal = IdRotaReal;
     }
     

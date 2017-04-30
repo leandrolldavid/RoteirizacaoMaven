@@ -18,17 +18,17 @@ import javax.persistence.Table;
         
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int IdRota;
+    private Integer IdRota;
     
     private String EnderecoEntrega;
     private String LocalizacaoEntregador;
     private Time tempo;
 
-    public int getIdRota() {
+    public Integer getIdRota() {
         return IdRota;
     }
 
-    public void setIdRota(int IdRota) {
+    public void setIdRota(Integer IdRota) {
         this.IdRota = IdRota;
     }
 
